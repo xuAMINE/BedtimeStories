@@ -15,16 +15,12 @@ public class Story {
             String line;
             int lineNumber = 1;
 
-            while ((line = br.readLine()) != null) {
-                story.append(String.format("%s. ", lineNumber++));
-                story.append(line);
-                story.append('\n');
-            }
+            while ((line = br.readLine()) != null)
+                story.append(String.format("%s. %s \n", lineNumber++, line));
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.err.println("File Does not exist: " + fileName);
         }
-
         return story;
     }
 }
